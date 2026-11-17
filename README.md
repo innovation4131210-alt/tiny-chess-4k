@@ -1,8 +1,8 @@
 # tiny-chess-01 — a chess engine in 4 KB of Python
 
 [![make.fun tiny-chess-01](https://make.fun/badge/tiny-chess-01.svg)](https://make.fun/c/tiny-chess-01)
-[![rank](https://make.fun/badge/tiny-chess-01/__OWNER__/__REPO__/rank.svg)](https://make.fun/c/tiny-chess-01)
-[![reward](https://make.fun/badge/tiny-chess-01/__OWNER__/__REPO__/reward.svg)](https://make.fun/c/tiny-chess-01)
+[![rank](https://make.fun/badge/tiny-chess-01/innovation4131210-alt/tiny-chess-4k/rank.svg)](https://make.fun/c/tiny-chess-01)
+[![reward](https://make.fun/badge/tiny-chess-01/innovation4131210-alt/tiny-chess-4k/reward.svg)](https://make.fun/c/tiny-chess-01)
 
 An entry to [make.fun's tiny-chess-01](https://make.fun/c/tiny-chess-01):
 the strongest chess engine that fits in 4,096 bytes of Python.
