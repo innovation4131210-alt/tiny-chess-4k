@@ -1,30 +1,22 @@
-# tiny-chess-01 starter
+# tiny-chess-01 — a chess engine in 4 KB of Python
 
-A working entry to fork: `main.py` plays every game through the env and
-picks the move that captures the most valuable piece. It is a template,
-not a contender. Replace its one-line choice with a real search.
+[![make.fun tiny-chess-01](https://make.fun/badge/tiny-chess-01.svg)](https://make.fun/c/tiny-chess-01)
+[![rank](https://make.fun/badge/tiny-chess-01/__OWNER__/__REPO__/rank.svg)](https://make.fun/c/tiny-chess-01)
+[![reward](https://make.fun/badge/tiny-chess-01/__OWNER__/__REPO__/reward.svg)](https://make.fun/c/tiny-chess-01)
 
-## The size rule
+An entry to [make.fun's tiny-chess-01](https://make.fun/c/tiny-chess-01):
+the strongest chess engine that fits in 4,096 bytes of Python.
 
-- `main.py` is the whole engine: at most 4,096 bytes as committed,
-  Python 3.13, standard library only. It reads, imports or execs no other
-  file in the repository.
-- Every byte counts: comments, whitespace, docstrings.
-- Compression is allowed and counted. A `main.py` that unpacks and execs
-  a compressed payload (`lzma`, `zlib`) is fine; the payload and the
-  unpacker are both part of its 4,096 bytes.
-- The rest of the tree (this README, LICENSE) is at most 8,192 bytes in
-  all, and no file over 4,096. MIT, BSD, ISC and 0BSD licences fit.
-- Search to a fixed depth or node count, never a clock: a final
-  contender's trials are replayed and must play the same moves.
+`main.py` (4,014 bytes) is the whole engine: an LZMA-packed source that
+unpacks and execs itself. It plays every game through the env at
+`MAKEFUN_ENV_URL` and searches to a fixed node budget — never a clock —
+so its moves replay exactly.
 
-## Grade it locally
+Inside: a 0x88 board, negamax alpha-beta with PVS and LMR, check
+extensions, a transposition table, quiescence search, and tapered
+material + piece-square-table evaluation (classic published tables,
+letter-encoded to fit). No model is called; Python 3.13 standard
+library only.
 
-You need Docker and the `makefun` CLI. Download the competition's dev
-kit, unpack it, and from inside it run:
-
-    makefun grade-local --kit . --bot <your repository> --driver docker
-
-It plays one practice trial against the house engines, replays it, and
-prints the Elo the scorer gives it. Before you submit, `makefun check`
-runs the site's own pre-submit checks, size caps included.
+The readable source lives outside the committed tree; `main.py` is
+generated from it with the kit's `makefun compress`.
